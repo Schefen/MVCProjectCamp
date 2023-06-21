@@ -10,7 +10,7 @@ namespace BusinessLayer.Concrete
 {
     public class CategoryManager
     {
-        GenericRepository<Category> repo = new GenericRepository<Category> ();
+        GenericRepository<Category> repo = new GenericRepository<Category>();
 
         public List<Category> GetAllBL()
         {
@@ -18,7 +18,7 @@ namespace BusinessLayer.Concrete
         }
         public void CategoryAddBL(Category p)
         {
-            if (p.CategoryName=="" || p.CategoryName.Length<=4 || p.CategoryDescription=="" || p.CategoryName.Length>51)
+            if (p.CategoryName == "" || p.CategoryName.Length <= 4 || p.CategoryDescription == "" || p.CategoryName.Length > 51)
             {
                 // Hata Mesajı
             }
