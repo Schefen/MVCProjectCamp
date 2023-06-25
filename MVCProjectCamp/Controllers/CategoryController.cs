@@ -33,7 +33,7 @@ namespace MVCProjectCamp.Controllers
         public ActionResult AddCategory(Category category)
         {
             //catManager.CategoryAddBL(category);
-            CategoryValidatior categoryValidator = new CategoryValidatior();
+            CategoryValidator categoryValidator = new CategoryValidator();
             ValidationResult results = categoryValidator.Validate(category);
             if (results.IsValid)
             {
