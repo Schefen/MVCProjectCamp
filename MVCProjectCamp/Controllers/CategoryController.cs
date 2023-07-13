@@ -21,7 +21,7 @@ namespace MVCProjectCamp.Controllers
         }
         public ActionResult GetCategoryList()
         {
-            var CategoryValues = catManager.GetCategories();
+            var CategoryValues = catManager.GetList();
             return View(CategoryValues);
         } 
         [HttpGet]

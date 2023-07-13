@@ -16,7 +16,7 @@ namespace MVCProjectCamp.Controllers
         CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
         public ActionResult Index()
         {
-            var categoryValues = categoryManager.GetCategories();
+            var categoryValues = categoryManager.GetList();
             return View(categoryValues);
         }
         [HttpGet]
