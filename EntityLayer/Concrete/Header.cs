@@ -15,6 +15,7 @@ namespace EntityLayer.Concrete
         [StringLength(50)]
         public string HeaderName { get; set; }
         public DateTime HeaderDate { get; set; }
+        public bool HeaderStatus { get; set; }
         public int CategoryId { get; set; }
         public virtual Category Category { get; set; }
         public int WriterId { get; set; }

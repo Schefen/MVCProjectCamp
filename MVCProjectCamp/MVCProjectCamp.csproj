@@ -2304,8 +2304,8 @@
     <Content Include="Views\Writer\EditWriter.cshtml" />
     <Content Include="Views\Header\Index.cshtml" />
     <Content Include="Views\Header\AddHeader.cshtml" />
-    <Content Include="Views\Header\ContentByHeader.cshtml" />
     <Content Include="Views\Content\ContentByHeader.cshtml" />
+    <Content Include="Views\Header\EditHeader.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

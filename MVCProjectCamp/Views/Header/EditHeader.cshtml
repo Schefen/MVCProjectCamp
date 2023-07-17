@@ -1,0 +1,29 @@
+﻿@model EntityLayer.Concrete.Header
+@{
+    ViewBag.Title = "EditHeader";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Başlık Güncelleme Sayfası</h2>
+@using (Html.BeginForm("EditHeader", "Header", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.Label("Başlık ID")
+        @Html.TextBoxFor(x => x.WriterId, new { @class = "form-control" })
+        <br />
+        @Html.Label("Başlık Adı")
+        @Html.TextBoxFor(x => x.HeaderName, new { @class = "form-control" })
+        <br />
+        @Html.Label("Tarih")
+        @Html.TextBoxFor(x => x.HeaderDate, new { @class = "form-control" })
+        <br />
+        @Html.Label("Yazar ID")
+        @Html.TextBoxFor(x => x.HeaderId, new { @class = "form-control" })
+        <br />
+        @Html.Label("Kategori Listesi")
+        @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.vlc, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-success">Güncelle</button>
+    </div>
+}
+

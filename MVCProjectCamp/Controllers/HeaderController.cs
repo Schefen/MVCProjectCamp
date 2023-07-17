@@ -48,6 +48,25 @@ namespace MVCProjectCamp.Controllers
             _headerManager.HeaderAdd(header);
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public ActionResult EditHeader(int id)
+        {
+            List<SelectListItem> valueCategory = (from x in _categoryManager.GetList() //DropDownList
+                                                  select new SelectListItem
+                                                  {
+                                                      Text = x.CategoryName,
+                                                      Value = x.CategoryId.ToString()
+                                                  }).ToList();
+            ViewBag.vlc = valueCategory;
+            var headerValue = _headerManager.GetById(id);
+            return View(headerValue);
+        }
+        [HttpPost]
+        public ActionResult EditHeader(Header header)
+        {
+            _headerManager.HeaderUpdate(header);
+            return RedirectToAction("Index");
+        }
 
     }
 }

@@ -17,6 +17,7 @@ namespace EntityLayer.Concrete
         public DateTime ContentDate { get; set; }
         public int HeaderId { get; set; }
         public virtual Header Header { get; set; }
+        public bool ContentStatus { get; set; }
 
         public int? WriterId { get; set; }
         public virtual Writer Writer { get; set; }
