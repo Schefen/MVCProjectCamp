@@ -20,7 +20,7 @@ namespace BusinessLayer.Concrete
 
         public Header GetById(int id)
         {
-            return _headerDal.Get(x => x.WriterId == id);
+            return _headerDal.Get(x => x.HeaderId == id);
         }
 
         public List<Header> GetList()
@@ -35,7 +35,8 @@ namespace BusinessLayer.Concrete
 
         public void HeaderDelete(Header header)
         {
-            _headerDal.Delete(header);
+            header.HeaderStatus = false;
+            _headerDal.Update(header); 
         }
 
         public void HeaderUpdate(Header header)
