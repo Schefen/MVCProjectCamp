@@ -35,7 +35,6 @@ namespace BusinessLayer.Concrete
 
         public void HeaderDelete(Header header)
         {
-            header.HeaderStatus = false;
             _headerDal.Update(header); 
         }
 

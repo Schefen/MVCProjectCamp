@@ -70,6 +70,7 @@ namespace MVCProjectCamp.Controllers
         public ActionResult DeleteHeader(int id)
         {
             var headerValue = _headerManager.GetById(id);
+            headerValue.HeaderStatus = false;
             _headerManager.HeaderDelete(headerValue);
             return RedirectToAction("Index");
         }
