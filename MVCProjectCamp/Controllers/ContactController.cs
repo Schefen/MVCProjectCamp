@@ -24,6 +24,10 @@ namespace MVCProjectCamp.Controllers
             var contactValues = _contactManager.GetById(id);
             return View(contactValues);
         }
+        public PartialViewResult MessageListMenu()
+        {
+            return PartialView();
+        }
 
     }
 }
