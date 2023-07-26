@@ -1,6 +1,8 @@
 ﻿using BusinessLayer.Concrete;
+using BusinessLayer.ValidationRules;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +16,7 @@ namespace MVCProjectCamp.Controllers
         // GET: Message
 
         MessageManager _messageManager = new MessageManager(new EfMessageDal());
+        MessageValidator _messageValidator = new MessageValidator();
         public ActionResult Inbox()
         {
             var messageList = _messageManager.GetListInbox();
@@ -24,6 +27,16 @@ namespace MVCProjectCamp.Controllers
             var messageList = _messageManager.GetListSendbox();
             return View(messageList);
         }
+        public ActionResult GetInboxMessageDetails(int id)
+        {
+            var values = _messageManager.GetById(id);
+            return View(values);
+        } 
+        public ActionResult GetSendboxMessageDetails(int id)
+        {
+            var values = _messageManager.GetById(id);
+            return View(values);
+        }
         [HttpGet]
         public ActionResult NewMessage()
         {
@@ -33,6 +46,20 @@ namespace MVCProjectCamp.Controllers
         
         public ActionResult NewMessage(Message message)
         {
+            ValidationResult results = _messageValidator.Validate(message);
+            if (results.IsValid)
+            {
+                message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+                _messageManager.MessageAdd(message);
+                return RedirectToAction("Sendbox");
+            }
+            else
+            {
+                foreach (var item in results.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
             return View();
         }
 
