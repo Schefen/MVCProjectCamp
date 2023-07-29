@@ -28,6 +28,11 @@ namespace BusinessLayer.Concrete
             return _headerDal.List();
         }
 
+        public List<Header> GetListByWriter()
+        {
+            return _headerDal.List(x => x.WriterId == 4);
+        }
+
         public void HeaderAdd(Header header)
         {
             _headerDal.Insert(header);
@@ -35,7 +40,7 @@ namespace BusinessLayer.Concrete
 
         public void HeaderDelete(Header header)
         {
-            _headerDal.Update(header); 
+            _headerDal.Update(header);
         }
 
         public void HeaderUpdate(Header header)

@@ -150,10 +150,13 @@
     <Compile Include="Controllers\SkillPageController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\WriterController.cs" />
+    <Compile Include="Controllers\WriterPageController.cs" />
+    <Compile Include="Controllers\WriterPageMessageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Role\AdminRoleProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminLTE-3.0.4\build\config\postcss.config.js" />
@@ -325,6 +328,7 @@
     <Content Include="AdminLTE-3.0.4\Images\Car3.jpg" />
     <Content Include="AdminLTE-3.0.4\Images\Car4.jpg" />
     <Content Include="AdminLTE-3.0.4\Images\Car5.jpg" />
+    <Content Include="AdminLTE-3.0.4\Images\HalilMorgil.jpg" />
     <Content Include="AdminLTE-3.0.4\index.html" />
     <Content Include="AdminLTE-3.0.4\index2.html" />
     <Content Include="AdminLTE-3.0.4\index3.html" />
@@ -2466,6 +2470,14 @@
     <Content Include="Views\Gallery\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\SkillPage\Index.cshtml" />
+    <Content Include="Views\Shared\_WriterLayout.cshtml" />
+    <Content Include="Views\WriterPage\WriterProfile.cshtml" />
+    <Content Include="Views\WriterPage\MyHeading.cshtml" />
+    <Content Include="Views\WriterPage\NewHeading.cshtml" />
+    <Content Include="Views\WriterPage\EditHeader.cshtml" />
+    <Content Include="Views\WriterPageMessage\Inbox.cshtml" />
+    <Content Include="Views\WriterPageMessage\MessageListMenu.cshtml" />
+    <Content Include="Views\WriterPageMessage\Sendbox.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
