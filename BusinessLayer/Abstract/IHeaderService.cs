@@ -10,7 +10,7 @@ namespace BusinessLayer.Abstract
     public interface IHeaderService
     {
         List<Header> GetList();
-        List<Header> GetListByWriter();
+        List<Header> GetListByWriter(int id);
 
         void HeaderAdd(Header header);
 
