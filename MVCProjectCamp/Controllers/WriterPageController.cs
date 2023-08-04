@@ -8,6 +8,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Configuration;
 using System.Web.Mvc;
+using PagedList;
+using PagedList.Mvc;
+using Antlr.Runtime;
 
 namespace MVCProjectCamp.Controllers
 {
@@ -77,12 +80,17 @@ namespace MVCProjectCamp.Controllers
             _headerManager.HeaderDelete(headerValue);
             return RedirectToAction("MyHeading");
         }
+        public ActionResult AllHeaders(int p = 1)
+        {
+            var headers = _headerManager.GetList().ToPagedList(p,8);
+            return View(headers);
+        }
 
     }
 }
 
-      //< customErrors mode = "On" >
+//< customErrors mode = "On" >
 
-      //    < error statusCode = "404" redirect = "/ErrorPage/Page404/" ></ error >
+//    < error statusCode = "404" redirect = "/ErrorPage/Page404/" ></ error >
 
-      //</ customErrors >
+//</ customErrors >

@@ -1,4 +1,5 @@
-﻿
+﻿@using EntityLayer.Concrete
+@model List<Header>
 @{
     Layout = null;
 }
@@ -38,6 +39,13 @@ to get the desired effect
         <!-- /.navbar -->
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <!-- Brand Logo -->
+            <a href="index3.html" class="brand-link">
+                <img src="~/AdminLTE-3.0.4/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+                     style="opacity: .8">
+                <span class="brand-text font-weight-light">Vitrin</span>
+            </a>
+
             <!-- Sidebar -->
             <div class="sidebar">
                 <!-- Sidebar user panel (optional) -->
@@ -46,7 +54,7 @@ to get the desired effect
                         <img src="~/AdminLTE-3.0.4/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Yazar Paneli</a>
+                        <a href="#" class="d-block">Halil İbrahim Morgil</a>
                     </div>
                 </div>
 
@@ -54,64 +62,18 @@ to get the desired effect
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
-                        with font-awesome or any other icon font library -->
-                        <li class="nav-item has-treeview">
-                            <a href="/AdminCategory/Index/" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>
-                                    Profilim
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item has-treeview">
-                            <a href="/WriterPage/MyHeading" class="nav-link">
-                                <i class="nav-icon fas fa-book"></i>
-                                <p>
-                                    Başlıklarım
-                                </p>
-                            </a>
-                        </li> 
-                        <li class="nav-item has-treeview">
-                            <a href="/WriterPage/AllHeaders" class="nav-link">
-                                <i class="nav-icon fas fa-list-alt"></i>
-                                <p>
-                                    Tüm Başlıklar
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item has-treeview">
-                            <a href="/WriterPageMessage/Inbox/" class="nav-link">
-                                <i class="nav-icon fas fa-edit"></i>
-                                <p>
-                                    Mesajlar
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/WriterPageContent/MyContent/" class="nav-link">
-                                <i class="nav-icon fas fa-calendar-alt"></i>
-                                <p>
-                                    Yazılarım
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item has-treeview">
-                            <a href="/Default/Headers" class="nav-link">
-                                <i class="nav-icon fas fa-book"></i>
-                                <p>
-                                    Siteye Git
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item has-treeview">
-                            <a href="/Login/LogOut/" class="nav-link">
-                                <i class="nav-icon fas fa-door-closed"></i>
-                                <p>
-                                    Çıkış Yap
-                                </p>
-                            </a>
+    with font-awesome or any other icon font library -->
+                        @foreach (var item in Model)
+                        {
+                            <li class="nav-item has-treeview">
+                                <a href="/Default/Headers/@item.HeaderId" class="nav-link">
+                                    <p>
+                                        @item.HeaderName
+                                    </p>
+                                </a>
+                            </li>
+                        }
 
-                        </li>
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -124,7 +86,7 @@ to get the desired effect
 
             <!-- Main content -->
             <div class="content">
-                @RenderBody()
+                @Html.Action("Index","Default")
                 <!-- /.container-fluid -->
             </div>
             <!-- /.content -->
