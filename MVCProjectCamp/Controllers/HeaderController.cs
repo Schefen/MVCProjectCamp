@@ -22,6 +22,11 @@ namespace MVCProjectCamp.Controllers
             var headerValues = _headerManager.GetList();
             return View(headerValues);
         }
+        public ActionResult HeaderReport()
+        {
+            var headerValues = _headerManager.GetList();
+            return View(headerValues);
+        }
         [HttpGet]
         public ActionResult AddHeader()
         {
